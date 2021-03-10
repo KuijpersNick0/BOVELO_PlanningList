@@ -26,7 +26,9 @@ namespace BOVELO_PlanningList
         {
             if(button1.Text == "Se connecter")
             {
-                cn = new MySqlConnection("SERVER=193.191.240.67;user=nick;database=mydb;port=63307;password=1234");
+
+
+                cn = new MySqlConnection("SERVER=193.191.240.67;user=nick;database=DataBase;port=63307;password=1234");
                 try
                 {
                     if (cn.State == ConnectionState.Closed) { cn.Open(); }
@@ -52,17 +54,20 @@ namespace BOVELO_PlanningList
             if (Connecter)
             {
                 listView1.Items.Clear();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM CommandLines ", cn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Bike ", cn);
                 using(MySqlDataReader Lire = cmd.ExecuteReader())
                 {
                     while (Lire.Read())
                     {
-                        string ID = Lire["ID"].ToString();
-                        string Bike = Lire["Bike"].ToString();
-                        string Monteur = Lire["Monteur"].ToString();
-                        string Horaire = Lire["Horaire"].ToString();
+                        string ID = Lire["idBike"].ToString();
+                        //string Bike = Lire["Bike"].ToString();
+                        //string Monteur = Lire["Monteur"].ToString();
+                        string Type  = Lire["Type"].ToString();
+                        string Color = Lire["Color"].ToString();
+                        string Size  = Lire["Size"].ToString();
 
-                        listView1.Items.Add(new ListViewItem(new[] { ID, Bike, Monteur, Horaire }));
+
+                        listView1.Items.Add(new ListViewItem(new[] { ID, Type, Color, Size }));
 
                     } 
 
@@ -80,16 +85,15 @@ namespace BOVELO_PlanningList
                 {
                     ListViewItem element = listView1.SelectedItems[0]; //mon premier element ici est l'id ou peux rajouter les autres par apres #flemme
 
-                    string id = element.SubItems[0].Text;
+                    string idBike = element.SubItems[0].Text;
 
-                    MySqlCommand cmd = new MySqlCommand("DELETE FROM CommandLines WHERE ID = @id", cn);
-                    cmd.Parameters.AddWithValue("@id", id);
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM Bike WHERE idBike = @idBike", cn);
+                    cmd.Parameters.AddWithValue("@idBike", idBike);
                     cmd.ExecuteNonQuery();
 
                     element.Remove();
                     MessageBox.Show("Supprimé");
                 }
-
             }
         }
 
@@ -98,25 +102,25 @@ namespace BOVELO_PlanningList
             if (listView1.SelectedItems.Count > 0) //je peux pas selectioner du vide
             {
                 ListViewItem element = listView1.SelectedItems[0]; //je rerentre mes données ds cette boucle, pour un code plus soignée on peut les sortir mais flemme
-                string ID = element.SubItems[0].Text;
+                string idBike = element.SubItems[0].Text;
                 string Bike = element.SubItems[1].Text;
                 string Monteur = element.SubItems[2].Text;
                 string Horaire = element.SubItems[3].Text;
 
                 using(Détail_et_modification m = new Détail_et_modification()) //On crée notre nouvelle instante modification et detail
                 {
-                    m.ID = ID;
+                    m.idBike = idBike;
                     m.Monteur = Monteur;
                     m.Horaire = Horaire;
                     m.Bike = Bike;
 
                     if(m.ShowDialog() == DialogResult.Yes) //l'utilisateur a bien cliqué sur modifier?
                     {
-                        MySqlCommand cmd = new MySqlCommand("UPDATE CommandLines SET Monteur=@monteur, Horaire=@horaire, Bike=@bike WHERE ID=@id", cn);
+                        MySqlCommand cmd = new MySqlCommand("UPDATE CommandLines SET Monteur=@monteur, Horaire=@horaire, Bike=@bike WHERE idBike=@idBike", cn);
                         cmd.Parameters.AddWithValue("@monteur", m.Monteur);
                         cmd.Parameters.AddWithValue("@horaire", m.Horaire);
                         cmd.Parameters.AddWithValue("@bike", m.Bike);
-                        cmd.Parameters.AddWithValue("@id", ID );  //comme readonly pas de m.ID car je ne fais que afficher
+                        cmd.Parameters.AddWithValue("@idBike", idBike);  //comme readonly pas de m.ID car je ne fais que afficher
                         cmd.ExecuteNonQuery();
 
 
@@ -129,6 +133,11 @@ namespace BOVELO_PlanningList
                 }
 
             }
+        }
+
+        private void ajoutCommandeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //a faire
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,15 +39,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listView5 = new System.Windows.Forms.ListView();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.listView5 = new System.Windows.Forms.ListView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.locationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -146,6 +143,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.listView5);
             this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Controls.Add(this.label6);
@@ -156,6 +154,22 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Détails";
+            // 
+            // listView5
+            // 
+            this.listView5.HideSelection = false;
+            this.listView5.Location = new System.Drawing.Point(97, 60);
+            this.listView5.Name = "listView5";
+            this.listView5.Size = new System.Drawing.Size(465, 269);
+            this.listView5.TabIndex = 4;
+            this.listView5.UseCompatibleStateImageBehavior = false;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(97, 374);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(475, 22);
+            this.textBox5.TabIndex = 3;
             // 
             // label6
             // 
@@ -175,42 +189,21 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Parts";
             // 
-            // textBox5
+            // button2
             // 
-            this.textBox5.Location = new System.Drawing.Point(97, 374);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(475, 22);
-            this.textBox5.TabIndex = 3;
-            // 
-            // listView5
-            // 
-            this.listView5.HideSelection = false;
-            this.listView5.Location = new System.Drawing.Point(97, 60);
-            this.listView5.Name = "listView5";
-            this.listView5.Size = new System.Drawing.Size(465, 269);
-            this.listView5.TabIndex = 4;
-            this.listView5.UseCompatibleStateImageBehavior = false;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.locationToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
-            // 
-            // locationToolStripMenuItem
-            // 
-            this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
-            this.locationToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.locationToolStripMenuItem.Text = "location";
-            this.locationToolStripMenuItem.Click += new System.EventHandler(this.locationToolStripMenuItem_Click);
+            this.button2.Location = new System.Drawing.Point(256, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Actualiser";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Détail_et_modification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(965, 450);
+            this.ClientSize = new System.Drawing.Size(970, 450);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -220,7 +213,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -242,7 +234,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.ListView listView5;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem locationToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
     }
 }

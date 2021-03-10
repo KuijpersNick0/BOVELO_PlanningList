@@ -41,7 +41,10 @@
             this.jaiFinisMaTacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jeCommenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myBananasAreRipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajoutCommandeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button2 = new System.Windows.Forms.Button();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +84,8 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
+            this.columnHeader5,
+            this.columnHeader6,
             this.columnHeader3,
             this.columnHeader4});
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
@@ -97,22 +102,24 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 212;
+            this.columnHeader1.Width = 110;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Bike";
-            this.columnHeader2.Width = 255;
+            this.columnHeader2.Text = "Type";
+            this.columnHeader2.Width = 177;
             // 
             // columnHeader3
             // 
+            this.columnHeader3.DisplayIndex = 2;
             this.columnHeader3.Text = "Monteur";
-            this.columnHeader3.Width = 232;
+            this.columnHeader3.Width = 179;
             // 
             // columnHeader4
             // 
+            this.columnHeader4.DisplayIndex = 3;
             this.columnHeader4.Text = "Horaire";
-            this.columnHeader4.Width = 227;
+            this.columnHeader4.Width = 161;
             // 
             // contextMenuStrip1
             // 
@@ -120,29 +127,37 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.jaiFinisMaTacheToolStripMenuItem,
             this.jeCommenceToolStripMenuItem,
-            this.myBananasAreRipeToolStripMenuItem});
+            this.myBananasAreRipeToolStripMenuItem,
+            this.ajoutCommandeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 104);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 100);
             // 
             // jaiFinisMaTacheToolStripMenuItem
             // 
             this.jaiFinisMaTacheToolStripMenuItem.Name = "jaiFinisMaTacheToolStripMenuItem";
-            this.jaiFinisMaTacheToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.jaiFinisMaTacheToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.jaiFinisMaTacheToolStripMenuItem.Text = "Finished work";
             this.jaiFinisMaTacheToolStripMenuItem.Click += new System.EventHandler(this.jaiFinisMaTacheToolStripMenuItem_Click);
             // 
             // jeCommenceToolStripMenuItem
             // 
             this.jeCommenceToolStripMenuItem.Name = "jeCommenceToolStripMenuItem";
-            this.jeCommenceToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.jeCommenceToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.jeCommenceToolStripMenuItem.Text = "Start work";
             // 
             // myBananasAreRipeToolStripMenuItem
             // 
             this.myBananasAreRipeToolStripMenuItem.Name = "myBananasAreRipeToolStripMenuItem";
-            this.myBananasAreRipeToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.myBananasAreRipeToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.myBananasAreRipeToolStripMenuItem.Text = "Modifier et détail";
             this.myBananasAreRipeToolStripMenuItem.Click += new System.EventHandler(this.myBananasAreRipeToolStripMenuItem_Click);
+            // 
+            // ajoutCommandeToolStripMenuItem
+            // 
+            this.ajoutCommandeToolStripMenuItem.Name = "ajoutCommandeToolStripMenuItem";
+            this.ajoutCommandeToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.ajoutCommandeToolStripMenuItem.Text = "Ajout commande";
+            this.ajoutCommandeToolStripMenuItem.Click += new System.EventHandler(this.ajoutCommandeToolStripMenuItem_Click);
             // 
             // button2
             // 
@@ -153,6 +168,18 @@
             this.button2.Text = "Actualiser";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.DisplayIndex = 4;
+            this.columnHeader5.Text = "Color";
+            this.columnHeader5.Width = 170;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.DisplayIndex = 5;
+            this.columnHeader6.Text = "Size";
+            this.columnHeader6.Width = 152;
             // 
             // Form1
             // 
@@ -189,6 +216,9 @@
         private System.Windows.Forms.ToolStripMenuItem jaiFinisMaTacheToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jeCommenceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem myBananasAreRipeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajoutCommandeToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
 
