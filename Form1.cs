@@ -22,12 +22,13 @@ namespace BOVELO_PlanningList
         MySqlConnection cn;
         bool Connecter = false;
 
+        Horaire monTemps;
+
+
         private void button1_Click(object sender, EventArgs e) // connexion bdd
         {
             if(button1.Text == "Se connecter")
             {
-
-
                 cn = new MySqlConnection("SERVER=193.191.240.67;user=nick;database=DataBase;port=63307;password=1234");
                 try
                 {
@@ -57,15 +58,14 @@ namespace BOVELO_PlanningList
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM Bike ", cn);
                 using(MySqlDataReader Lire = cmd.ExecuteReader())
                 {
-                    while (Lire.Read())
+                    while (Lire.Read()) 
                     {
                         string ID = Lire["idBike"].ToString();
-                        //string Bike = Lire["Bike"].ToString();
-                        //string Monteur = Lire["Monteur"].ToString();
                         string Type  = Lire["Type"].ToString();
                         string Color = Lire["Color"].ToString();
                         string Size  = Lire["Size"].ToString();
-
+                        monTemps = new Horaire();
+                        //monMonteur = new Monteur() OU AUTRE SI CA FONCTIONNE
 
                         listView1.Items.Add(new ListViewItem(new[] { ID, Type, Color, Size }));
 
