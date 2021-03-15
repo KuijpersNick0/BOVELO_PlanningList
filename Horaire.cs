@@ -8,19 +8,18 @@ namespace BOVELO_PlanningList
 {
     class Horaire
     {
-        
+        string test0;
 
-        //private int temps;
+        Détail_et_modification m2 = new Détail_et_modification();
 
-        public Horaire(DateTime a, DateTime b)
+        public string Horaire1 { get { return m2.HoraireTache + " " + m2.DureeTache;  } set { test0 = value; } }
+
+
+
+        public string getHoraire()
         {
-            monHoraire = a;
-            maTache = b;
-        }
-
-        public Horaire()
-        {
-            //pas encore définie
+            test0 = m2.HoraireTache + " " + m2.DureeTache;
+            return test0;
         }
 
         private void timer1_Tick(DateTime a)

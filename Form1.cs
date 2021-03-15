@@ -22,8 +22,7 @@ namespace BOVELO_PlanningList
         MySqlConnection cn;
         bool Connecter = false;
 
-        Horaire monTemps;
-
+        Horaire GT;
 
         private void button1_Click(object sender, EventArgs e) // connexion bdd
         {
@@ -64,10 +63,10 @@ namespace BOVELO_PlanningList
                         string Type  = Lire["Type"].ToString();
                         string Color = Lire["Color"].ToString();
                         string Size  = Lire["Size"].ToString();
-                        monTemps = new Horaire();
-                        //monMonteur = new Monteur() OU AUTRE SI CA FONCTIONNE
+                        string Monteur = Lire["Monteur"].ToString();
+                        string Horaire = Lire["HoraireTache"].ToString() + " durée:" + Lire["DureeTache"].ToString();
 
-                        listView1.Items.Add(new ListViewItem(new[] { ID, Type, Color, Size }));
+                        listView1.Items.Add(new ListViewItem(new[] { ID, Type, Color, Size, Monteur, Horaire }));
 
                     } 
 
@@ -96,38 +95,45 @@ namespace BOVELO_PlanningList
                 }
             }
         }
-
+        
         private void myBananasAreRipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0) //je peux pas selectioner du vide
             {
                 ListViewItem element = listView1.SelectedItems[0]; //je rerentre mes données ds cette boucle, pour un code plus soignée on peut les sortir mais flemme
                 string idBike = element.SubItems[0].Text;
-                string Bike = element.SubItems[1].Text;
-                string Monteur = element.SubItems[2].Text;
-                string Horaire = element.SubItems[3].Text;
+                string Type = element.SubItems[1].Text;
+                string Color = element.SubItems[2].Text;
+                string Size = element.SubItems[3].Text;
+                string Monteur = element.SubItems[4].Text;
+                string Horaire = element.SubItems[5].Text;
 
                 using(Détail_et_modification m = new Détail_et_modification()) //On crée notre nouvelle instante modification et detail
                 {
+                    GT = new Horaire();
+                    Monteur a = new Monteur(m.Monteur);
+                    
                     m.idBike = idBike;
                     m.Monteur = Monteur;
-                    m.Horaire = Horaire;
-                    m.Bike = Bike;
+                    GT.Horaire1 = Horaire;
+                    m.Type = Type;
 
                     if(m.ShowDialog() == DialogResult.Yes) //l'utilisateur a bien cliqué sur modifier?
                     {
-                        MySqlCommand cmd = new MySqlCommand("UPDATE CommandLines SET Monteur=@monteur, Horaire=@horaire, Bike=@bike WHERE idBike=@idBike", cn);
+                        MySqlCommand cmd = new MySqlCommand("UPDATE Bike SET Monteur=@monteur, HoraireTache=@HoraireTache, Type=@Type, DureeTache=@DureeTache WHERE idBike=@idBike", cn);
                         cmd.Parameters.AddWithValue("@monteur", m.Monteur);
-                        cmd.Parameters.AddWithValue("@horaire", m.Horaire);
-                        cmd.Parameters.AddWithValue("@bike", m.Bike);
+                        cmd.Parameters.AddWithValue("@HoraireTache", m.HoraireTache);
+                        cmd.Parameters.AddWithValue("@DureeTache", m.DureeTache);
+                        cmd.Parameters.AddWithValue("@Type", m.Type);
                         cmd.Parameters.AddWithValue("@idBike", idBike);  //comme readonly pas de m.ID car je ne fais que afficher
                         cmd.ExecuteNonQuery();
 
+                        a.addMonteur(m.Monteur);
 
                         //je le met directement à jour sans le bouton "actualiser"
-                        element.SubItems[1].Text = m.Bike;
-                        element.SubItems[2].Text = m.Monteur;
-                        element.SubItems[3].Text = m.Horaire;
+                        element.SubItems[1].Text = m.Type;
+                        element.SubItems[4].Text = m.Monteur;
+                        element.SubItems[5].Text = GT.Horaire1;
                         MessageBox.Show("Modifier");
                     }
                 }

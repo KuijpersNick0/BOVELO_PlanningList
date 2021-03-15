@@ -33,18 +33,18 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.jaiFinisMaTacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.jeCommenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.myBananasAreRipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajoutCommandeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button2 = new System.Windows.Forms.Button();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.jaiFinisMaTacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jeCommenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.myBananasAreRipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajoutCommandeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -94,10 +94,39 @@
             this.listView1.Location = new System.Drawing.Point(6, 21);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1065, 459);
+            this.listView1.Size = new System.Drawing.Size(1581, 458);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "idBike";
+            this.columnHeader7.Width = 50;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Type";
+            this.columnHeader8.Width = 135;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Color";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Size";
+            this.columnHeader10.Width = 142;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Monteur";
+            this.columnHeader11.Width = 188;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Horaire";
+            this.columnHeader12.Width = 350;
             // 
             // contextMenuStrip1
             // 
@@ -147,46 +176,18 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "idBike";
-            this.columnHeader7.Width = 112;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Type";
-            this.columnHeader8.Width = 135;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Color";
-            this.columnHeader9.Width = 155;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Size";
-            this.columnHeader10.Width = 142;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "Monteur";
-            this.columnHeader11.Width = 188;
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "Horaire";
-            this.columnHeader12.Width = 183;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1114, 589);
+            this.ClientSize = new System.Drawing.Size(1123, 588);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
