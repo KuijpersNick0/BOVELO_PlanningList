@@ -15,6 +15,7 @@ namespace BOVELO_PlanningList
     {
         string changement1;
         string changement2;
+        
 
 
         //Nos get/setter pour nos modif

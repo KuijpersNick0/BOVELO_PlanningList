@@ -110,6 +110,7 @@ namespace BOVELO_PlanningList
 
                 using(Détail_et_modification m = new Détail_et_modification()) //On crée notre nouvelle instante modification et detail
                 {
+
                     GT = new Horaire();
                     Monteur a = new Monteur(m.Monteur);
                     
@@ -118,7 +119,7 @@ namespace BOVELO_PlanningList
                     GT.Horaire1 = Horaire;
                     m.Type = Type;
 
-                    if(m.ShowDialog() == DialogResult.Yes) //l'utilisateur a bien cliqué sur modifier?
+                    if(m.ShowDialog() == DialogResult.Yes) 
                     {
                         MySqlCommand cmd = new MySqlCommand("UPDATE Bike SET Monteur=@monteur, HoraireTache=@HoraireTache, Type=@Type, DureeTache=@DureeTache WHERE idBike=@idBike", cn);
                         cmd.Parameters.AddWithValue("@monteur", m.Monteur);
