@@ -14,15 +14,12 @@ namespace BOVELO_PlanningList
     public partial class Détail_et_modification : Form
     {
         string changement1;
-        string changement2;
         
-
-
         //Nos get/setter pour nos modif
         public string idBike { get { return textBox4.Text; } set { textBox4.Text = value; } } //j'ai mis en readonly, on modifie pas l'id d'une commande
         public string Monteur { get { return textBox1.Text; } set { textBox1.Text = value; } }
         public string HoraireTache { get { return dateTimePicker1.Value.ToString(); } set { changement1 = value; } }
-        public string DureeTache { get { return dateTimePicker2.Value.ToString(); } set { changement2 = value; } }
+        public string DureeTache { get { return textBox2.Text; } set { textBox2.Text = value; } }
         public string Type { get { return textBox3.Text; } set { textBox3.Text = value; } }
 
 
@@ -36,8 +33,6 @@ namespace BOVELO_PlanningList
             DialogResult = DialogResult.Yes;  //Pour la modification du forme enfant soit pris en compte dans la forme mère
 
         }
-
-
 
 
         //je fais une connexion bdd degeux car on rajouterai peut etre des mots de passe,...
@@ -132,12 +127,6 @@ namespace BOVELO_PlanningList
             // Set title bar to selected date.
             DateTime result = dateTimePicker1.Value;
             this.changement1 = result.ToString();
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime result = dateTimePicker2.Value;
-            this.changement2 = result.ToString();
         }
     }
 }

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -64,7 +66,7 @@ namespace BOVELO_PlanningList
                         string Color = Lire["Color"].ToString();
                         string Size  = Lire["Size"].ToString();
                         string Monteur = Lire["Monteur"].ToString();
-                        string Horaire = Lire["HoraireTache"].ToString() + " durée:" + Lire["DureeTache"].ToString();
+                        string Horaire = Lire["HoraireTache"].ToString() + " durée:" + Lire["DureeTache"].ToString() + " minutes";
 
                         listView1.Items.Add(new ListViewItem(new[] { ID, Type, Color, Size, Monteur, Horaire }));
 
@@ -144,7 +146,44 @@ namespace BOVELO_PlanningList
 
         private void ajoutCommandeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //a faire
+            using(AjoutCommande m2 = new AjoutCommande())
+            {
+                if(m2.ShowDialog() == DialogResult.Yes)
+                {
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO Bike(Type,Size,Color,Monteur) VALUES(@Type,@Size,@Color,@Monteur)", cn);
+                    cmd.Parameters.AddWithValue("@Type", m2.Type);
+                    cmd.Parameters.AddWithValue("@Size", m2.Size2);
+                    cmd.Parameters.AddWithValue("@Color", m2.Color);
+                    cmd.Parameters.AddWithValue("@Monteur", m2.Monteur);
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                    MessageBox.Show("Added");
+                }
+            }
+        }
+
+        private void jeCommenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ListViewItem element = listView1.SelectedItems[0]; 
+            //string Horaire = element.SubItems[5].Text;
+        
+            //int DRTache = Int32.Parse(Horaire.Substring(25, 2));
+
+            //bool res = true;
+            //while (res)
+            //{
+    
+            //    System.Timers.Timer montimer = new System.Timers.Timer(); // Initialise mon compteur
+            //    montimer.Interval = 6000; // Interval en milliseconde 60000 = 1 minutes
+            //    montimer.Start(); // Lance Mon compteur
+            //    montimer.Elapsed += new System.Timers.ElapsedEventHandler(timer1_Elapsed); // Chaque 10 minutes mon évènement se déclenche.
+
+            //    if (DRTache < 1)
+            //    {
+            //        MessageBox.Show("Tache terminée");
+            //        res = false;
+            //    }
+            //}
         }
     }
 }

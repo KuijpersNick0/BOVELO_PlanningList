@@ -9,7 +9,7 @@ namespace BOVELO_PlanningList
     class Monteur
     {
         private string nameMonteur;
-        private List<string> ourMonteurs;
+        private List<string> ourMonteurs = new List<string>();
         
         public Monteur(string a)
         {

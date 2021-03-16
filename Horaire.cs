@@ -22,9 +22,9 @@ namespace BOVELO_PlanningList
             return test0;
         }
 
-        private void timer1_Tick(DateTime a)
+        private void timer1_Tick(int a)
         {
-            a = a.AddMinutes(-1);//au lieu d'ajouter, un retire 1 minute
+            a -= 1;
         }
 
     }

@@ -137,32 +137,33 @@
             this.myBananasAreRipeToolStripMenuItem,
             this.ajoutCommandeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 100);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 128);
             // 
             // jaiFinisMaTacheToolStripMenuItem
             // 
             this.jaiFinisMaTacheToolStripMenuItem.Name = "jaiFinisMaTacheToolStripMenuItem";
-            this.jaiFinisMaTacheToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.jaiFinisMaTacheToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.jaiFinisMaTacheToolStripMenuItem.Text = "Finished work";
             this.jaiFinisMaTacheToolStripMenuItem.Click += new System.EventHandler(this.jaiFinisMaTacheToolStripMenuItem_Click);
             // 
             // jeCommenceToolStripMenuItem
             // 
             this.jeCommenceToolStripMenuItem.Name = "jeCommenceToolStripMenuItem";
-            this.jeCommenceToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.jeCommenceToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.jeCommenceToolStripMenuItem.Text = "Start work";
+            this.jeCommenceToolStripMenuItem.Click += new System.EventHandler(this.jeCommenceToolStripMenuItem_Click);
             // 
             // myBananasAreRipeToolStripMenuItem
             // 
             this.myBananasAreRipeToolStripMenuItem.Name = "myBananasAreRipeToolStripMenuItem";
-            this.myBananasAreRipeToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.myBananasAreRipeToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.myBananasAreRipeToolStripMenuItem.Text = "Modifier et détail";
             this.myBananasAreRipeToolStripMenuItem.Click += new System.EventHandler(this.myBananasAreRipeToolStripMenuItem_Click);
             // 
             // ajoutCommandeToolStripMenuItem
             // 
             this.ajoutCommandeToolStripMenuItem.Name = "ajoutCommandeToolStripMenuItem";
-            this.ajoutCommandeToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.ajoutCommandeToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.ajoutCommandeToolStripMenuItem.Text = "Ajout commande";
             this.ajoutCommandeToolStripMenuItem.Click += new System.EventHandler(this.ajoutCommandeToolStripMenuItem_Click);
             // 
